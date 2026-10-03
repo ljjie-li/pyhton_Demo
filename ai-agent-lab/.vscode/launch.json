@@ -1,0 +1,100 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "▶ 运行当前打开的文件",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUTF8": "1"
+      },
+      "justMyCode": true
+    },
+    {
+      "name": "0-1 基础语法",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_01_basics.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-1 练习（自己做）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_01_exercises.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-2 OOP + pydantic",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_02_ood.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-2 练习（自己做）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_02_exercises.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-3 异步 IO",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_03_async.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-3 练习（自己做）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_03_exercises.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-4 装饰器/生成器",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_04_feature.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "0-4 练习（自己做）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step0_04_exercises.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "1 ReAct 循环（手写）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/step1_agent_loop.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1" },
+      "args": []
+    }
+  ]
+}

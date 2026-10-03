@@ -1,0 +1,23 @@
+# ===== AI Agent Lab 依赖 =====
+
+# 阶段 0：Python 基础（pydantic 是 AI 开发的核心基建）
+pydantic>=2.9
+httpx>=0.27
+
+# 阶段 1：手写 Agent 循环（最小依赖，直接调 API）
+requests>=2.31
+python-dotenv>=1.0
+
+# 阶段 2：LangGraph 版 Agent
+# langgraph>=0.2
+# langchain-core>=0.3
+# langchain-openai>=0.2
+
+# 阶段 3：RAG + pgvector
+# psycopg[binary]>=3.2
+# pgvector>=0.3
+# numpy>=1.26
+
+# 阶段 4：本地 embedding（可选，不装则用远程）
+# sentence-transformers>=3.0
+# onnxruntime>=1.18

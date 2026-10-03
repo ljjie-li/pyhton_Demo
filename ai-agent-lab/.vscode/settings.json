@@ -1,0 +1,25 @@
+{
+  "// 说明": "AI Agent Lab 的 VS Code 配置。改完直接用，不用再手敲 PYTHONIOENCODING",
+
+  "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+
+  "terminal.integrated.env.windows": {
+    "PYTHONIOENCODING": "utf-8",
+    "PYTHONUTF8": "1"
+  },
+
+  "files.encoding": "utf8",
+  "files.autoGuessEncoding": false,
+
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": false,
+
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+
+  "workbench.startupEditor": "none",
+
+  "// 调试配置说明": "按 F5 或点左侧「运行和调试」，选择要跑的文件",
+  "python-envs.defaultEnvManager": "ms-python.python:venv"
+}

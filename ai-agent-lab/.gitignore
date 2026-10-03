@@ -1,0 +1,34 @@
+# 环境变量与密钥
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 虚拟环境
+.venv*/
+
+# 数据与索引
+*.sqlite
+*.db
+*.npy
+chroma/
+pgvector_data/
+
+# 评测输出
+evals/output/
+*.log
+
+# IDE
+# 保留项目级配置（解释器路径 + 调试配置，换电脑/重装就靠它）
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+
+# 系统
+.DS_Store
+Thumbs.db
