@@ -46,10 +46,12 @@ x = "hello"         # 合法！同一个变量可以换类型（Java 编译不�
 big = 10 ** 100     # 10 的 100 次方，Java 的 int/long 早就溢出了
 print(f"1. Python int 无上限: 10**100 有 {len(str(big))} 位")
 
+print(f"{len('wowowowowowo我是谁')}")
+
 
 # ═══════════════════════════════════════════════════════════════
 # 2. 字符串：f-string 是 Java 没有的大杀器
-# ═══════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════
 
 user_name = "李俊杰"
 user_age = 30
@@ -99,7 +101,8 @@ print(f"   切片 fruits[1:3] 取下标 1、2（不含 3）→ {fruits[1:3]}   �
 print(f"   反转 fruits[::-1] → {fruits[::-1]}")
 
 # ⚠️ 关键差异：Python 的 list 什么都能装（Java 泛型约束类型）
-mixed = [1, "字符串", 3.14, True, None, [1, 2]]
+# 标注 list[object] ≈ Java 的 List<Object>，告诉类型检查器"我知道里面装的是杂七杂八"
+mixed: list[object] = [1, "字符串", 3.14, True, None, [1, 2]]
 print(f"   list 可以混装任意类型（Java 泛型不允许）: {mixed}")
 
 # ---------- tuple：不可变的 list，Java 没有直接对应 ----------
@@ -122,7 +125,8 @@ print(f"   交换变量 p, q = q, p → p={p}, q={q}   ← Java 要 tmp 变量")
 
 # ---------- dict：对应 Java 的 HashMap ----------
 # Java:  Map<String, Integer> map = new HashMap<>();  map.put("a", 1);
-user = {"name": "李俊杰", "age": 30, "city": "义乌"}
+# 标注 dict[str, str | int] ≈ Java 的 Map<String, Object>：key 是 str，value 是 str 或 int
+user: dict[str, str | int] = {"name": "李俊杰", "age": 30, "city": "义乌"}
 print(f"7. dict（≈ HashMap）: {user}")
 print(f"   取值 user['name'] → {user['name']}")
 print(f"   .get() 取不到不报错 → {user.get('email', '未填写')}   ← Java 是 getOrDefault")
@@ -277,7 +281,7 @@ print(f"    关键字乱序 greet(prefix='嗨', name='张三') → {greet(prefix
 
 
 # ---------- *args / **kwargs：Java 是 `String... args` 和 Map ----------
-def log_all(*args, **kwargs):
+def log_all(*args: object, **kwargs: object) -> None:
     """*args 收集位置参数成 tuple，**kwargs 收集关键字参数成 dict。
 
     Java 类比：Object... args 只能收位置参数，没有 kwargs 对应物。
@@ -316,7 +320,7 @@ print(f"    divide(10,0) → result={result}, error='{error}'")
 print("15. 陷阱演示:")
 
 # ---- 陷阱 1：可变默认参数（Python 最著名的坑）----
-def bad_append(item, target=[]):        # ❌ 默认值在函数定义时求值一次，全程复用同一个 list！
+def bad_append(item: object, target: list[object] = []) -> list[object]:   # ❌ 默认值在函数定义时求值一次，全程复用同一个 list！
     target.append(item)
     return target
 
@@ -326,7 +330,7 @@ print(f"         bad_append('b') → {bad_append('b')}   ← 啊，'a' 还在！
 print(f"         （Java 不会有这个问题，因为 Java 的默认值靠重载实现）")
 
 
-def good_append(item, target=None):     # ✅ 正确写法
+def good_append(item: object, target: list[object] | None = None) -> list[object]:   # ✅ 正确写法
     if target is None:
         target = []
     target.append(item)
@@ -342,7 +346,7 @@ list1 = [1, 2, 3]
 list2 = [1, 2, 3]
 print(f"    陷阱2 list1 == list2 → {list1 == list2}   （值相同）")
 print(f"         list1 is list2 → {list1 is list2}   （不是同一个对象）")
-print(f"         ⚠️ 只有和 None / True / False 比较才用 is：x is None（不要 x == None）")
+print(f"         注意：只有和 None / True / False 比较才用 is：x is None（不要 x == None）")
 
 # ---- 陷阱 3：整除与浮点 ----
 print(f"    陷阱3 7 / 2 = {7 / 2}         ← Python 3 的 / 永远是浮点除法")
@@ -356,7 +360,7 @@ print(f"         0.1 + 0.2 = {0.1 + 0.2}  ← 浮点精度问题，Java 也一�
 # ═══════════════════════════════════════════════════════════════
 
 print("""
-16. ═══ Java ↔ Python 速查表 ═══
+16. ═══ Java → Python 速查表 ═══
 ┌────────────────────────┬──────────────────────────────────┐
 │ Java                   │ Python                           │
 ├────────────────────────┼──────────────────────────────────┤
